@@ -22,13 +22,39 @@ namespace ContactsWebApi.Repositories
         public List<Contact> Get()
         {
             return _context.Contacts.AsNoTracking().ToList();
-            throw new NotImplementedException();
+
+        }
+
+        public Contact Create(Contact contact)
+        {
+
+            _context.Contacts.Add(contact);
+            _context.SaveChanges();
+            return contact;
+
+
+            
+        }
+
+        public Contact Update(Contact contact)
+        {
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
+            return contact;
+        }
+
+        public void Delete(int id)
+        {
+            var contact = Get(id);
+            _context.Contacts.Remove(contact);
+            _context.SaveChanges();
+            return;
+            
         }
 
         public Contact Get(int id)
         {
-            return _context.Contacts.AsNoTracking().FirstOrDefault();
-            throw new NotImplementedException();
+            return _context.Contacts.AsNoTracking().FirstOrDefault(c => c.id == id);
         }
     }
 }
