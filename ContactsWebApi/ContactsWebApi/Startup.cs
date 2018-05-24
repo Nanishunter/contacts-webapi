@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using ContactsWebApi.Repositories;
 namespace ContactsWebApi
 {
     public class Startup
@@ -25,10 +25,12 @@ namespace ContactsWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IContactRepository, ContactRepository>();
             services.AddDbContext<ContactsDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["LocalDbConnection"]);
             });
+
             services.AddMvc();
         }
 

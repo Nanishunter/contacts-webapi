@@ -12,6 +12,6 @@ namespace ContactsWebApi.Models
 
         public DbSet<Contact> Contacts { get; set; }
 
-
+        
     }
 }
