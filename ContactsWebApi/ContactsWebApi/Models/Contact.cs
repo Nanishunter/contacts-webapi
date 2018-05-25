@@ -18,7 +18,7 @@ namespace ContactsWebApi.Models
         public string city { get; set; }
         public string postalCode { get; set; }
         public string phoneNumber { get; set; }
-        public string emailaddress { get; set; }
+        public string emailAddress { get; set; }
 
         public Contact() { }
         
