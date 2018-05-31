@@ -9,14 +9,18 @@ namespace ContactsWebApi.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "Contacts");
+
             migrationBuilder.CreateTable(
                 name: "Contact",
+                schema: "Contacts",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     city = table.Column<string>(nullable: true),
-                    emailaddress = table.Column<string>(nullable: true),
+                    emailAddress = table.Column<string>(nullable: true),
                     firstName = table.Column<string>(nullable: true),
                     lastName = table.Column<string>(nullable: true),
                     phoneNumber = table.Column<string>(nullable: true),
@@ -32,7 +36,8 @@ namespace ContactsWebApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Contact");
+                name: "Contact",
+                schema: "Contacts");
         }
     }
 }
