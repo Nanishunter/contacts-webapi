@@ -10,7 +10,7 @@ using ContactsWebApi.Services;
 namespace ContactsWebApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Authentication")]
+    [Route("api/authentication")]
     public class AuthenticationController : Controller
     {
         private readonly IAuthenticationService _authenticationService;
